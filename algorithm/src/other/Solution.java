@@ -1,41 +1,30 @@
 package other;
 
 
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 class Solution {
-    private  int[] arr;
-    public int[] sortArray(int[] nums){
-        arr=nums;
-        quickSort(nums[0],0,nums.length-1);
-        return arr;
+//     堆排序O（nlogn）
+    public int smallestK(int[] arr, int k) {
+//            java内置小顶堆
+        PriorityQueue<Integer> heap = new PriorityQueue<>(k);
+        for (int num : arr)
+            heap.offer(num);
+        return heap.poll();
+    }
+//    排序法:O(nlogn) S(1)
+//
+//    对数据进行排序然后直接取data[k]
+
+
+    int find_k(int[] data,int k){
+
+        Arrays.sort(data);//java内置O(nlogn)
+
+        return data[k];
 
     }
-    public void quickSort(int base,int low,int high){
-        if (low>=high)return;
-        int begin =low;
-        int end = high;
-        while(low<high) {
 
-                while (low<high&&base<=arr[high]){
-                    high--;
-                }
-                arr[low]=arr[high];
-                arr[high]=base;
-                while (low<high&&base>=arr[low]){
-                        low++;
-                }
-                arr[high]=arr[low];
-                arr[low]=base;
-
-
-        }
-        quickSort(arr[begin],begin,low-1);
-        quickSort(arr[low+1],low+1,end);
-    }
-    public static void main(String[] args){
-        Solution s =new Solution();
-        int[] a = s.sortArray(new int[]{7,1,2,5,9,8,3,2,7});
-        for (int i:a){
-            System.out.println(i);
-        }
-    }
 }
+
