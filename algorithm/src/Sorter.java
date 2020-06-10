@@ -4,7 +4,12 @@
  * @author: mooncake
  * @create: 2020-06-09 20:08
  **/
-public class Sorter {
+public class Sorter implements Runnable{
+    @Override
+    public void run() {
+
+    }
+
     public Sorter(){
 //        经典排序JAVA实现
     }
