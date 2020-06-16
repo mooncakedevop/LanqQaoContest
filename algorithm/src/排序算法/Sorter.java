@@ -1,3 +1,5 @@
+package 排序算法;
+
 /**
  * @program: _1
  * @description: 日常复习快排
